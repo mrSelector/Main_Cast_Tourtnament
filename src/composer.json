@@ -1,0 +1,16 @@
+{
+    "name": "main_cast_tournament/app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MainCastTournament\\App\\": "public/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pavlo"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
