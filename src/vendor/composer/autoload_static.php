@@ -22,6 +22,8 @@ class ComposerStaticInit23de79bae3e5b17606e87599ccc64c4f
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'MainCastTournament\\App\\Classes\\Category' => __DIR__ . '/../..' . '/public/Classes/Category.php',
+        'MainCastTournament\\App\\Classes\\DataBase' => __DIR__ . '/../..' . '/public/Classes/DataBase.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
