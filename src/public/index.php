@@ -4,11 +4,12 @@ error_reporting(E_ALL);
 
 require __DIR__.'/../vendor/autoload.php';
 
-use MainCastTournament\App\classes\Category;
+use MainCastTournament\App\classes\Tournaments;
 
-$category = new Category();
-print_r($category->fetchAll());
-print_r(__DIR__);
+$trn = new Tournaments();
+$res = $trn->fetchAll();
+print_r($res['name']);
+
 ?>
 
 
@@ -44,7 +45,7 @@ print_r(__DIR__);
     <div class="col-12">
         <ul class="category-items-tournament">
             <li id="category-item-tournament-all" class="category-item-tournament category-item-tournament-current">
-                <a href="?" data-category="all" class="category-items-link category-tournament-link" data-posts="-1">
+                <a href="?category=all" data-category="all" class="category-items-link category-tournament-link" data-posts="-1">
                     <div class="tournament-nav-box">
                         <span class="tournament-logo tournament-logo-all"></span>
                         <span class="tournament-logo-name">All</span>
@@ -53,7 +54,7 @@ print_r(__DIR__);
             </li>
 
             <li class="category-item-tournament">
-                <a href="?grouptournaments=csgo-ua" data-category="csgo-ua" data-posts="-1" class="category-items-link category-tournament-link">
+                <a href="?category=CS:GO" data-category="csgo-ua" data-posts="-1" class="category-items-link category-tournament-link">
                     <div class="tournament-nav-box">
                         <span class="tournament-logo" style="background-image: url('https://maincast.com/wp-content/uploads/2021/09/csgo-1.svg');"></span>
                         <span class="tournament-logo-name">CS:GO</span>
@@ -62,7 +63,7 @@ print_r(__DIR__);
             </li>
 
             <li class="category-item-tournament empty-league">
-                <a href="?grouptournaments=dota2-ua" data-category="dota2-ua" data-posts="-1" class="category-items-link category-tournament-link">
+                <a href="?category=Dota2" data-category="dota2-ua" data-posts="-1" class="category-items-link category-tournament-link">
                     <div class="tournament-nav-box">
                         <span class="tournament-logo" style="background-image: url('https://maincast.com/wp-content/uploads/2021/09/dota-1.png');"></span>
                         <span class="tournament-logo-name">Dota2</span>
@@ -71,7 +72,7 @@ print_r(__DIR__);
             </li>
 
             <li class="category-item-tournament">
-                <a href="?grouptournaments=valorant-ua" data-category="valorant-ua" data-posts="-1" class="category-items-link category-tournament-link">
+                <a href="?category=Valorant" data-category="valorant-ua" data-posts="-1" class="category-items-link category-tournament-link">
                     <div class="tournament-nav-box">
                         <span class="tournament-logo" style="background-image: url('https://maincast.com/wp-content/uploads/2021/03/valorant_logo.png');"></span>
                         <span class="tournament-logo-name">Valorant</span>
@@ -81,6 +82,16 @@ print_r(__DIR__);
         </ul>
     </div>
 </div>
+
+<h2>Список дисциплін:</h2>
+<ul>
+    <?php foreach ($res as $discipline): ?>
+        <li>
+            <strong><?= htmlspecialchars($discipline['name']) ?></strong>:
+            <?= htmlspecialchars($discipline['description']) ?>
+        </li>
+    <?php endforeach; ?>
+</ul>
 
 </body>
 </html>
