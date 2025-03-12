@@ -6,9 +6,11 @@ require __DIR__.'/../vendor/autoload.php';
 
 use MainCastTournament\App\classes\Tournaments;
 
-$trn = new Tournaments();
-$res = $trn->fetchAll();
-print_r($res['name']);
+$category = $_GET["category"] ?? 'all';
+$trn = new Tournaments($category);
+$res = $trn->getTournaments();
+print_r($trn->getCategory());
+
 
 ?>
 
@@ -83,7 +85,7 @@ print_r($res['name']);
     </div>
 </div>
 
-<h2>Список дисциплін:</h2>
+<h2>Список турнірів:</h2>
 <ul>
     <?php foreach ($res as $discipline): ?>
         <li>
