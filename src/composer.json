@@ -6,11 +6,19 @@
             "MainCastTournament\\App\\": "public/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "MainCastTournament\\App\\tests\\": "public/tests"
+
+        }
+    },
     "authors": [
         {
             "name": "Pavlo"
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "10.5.x-dev"
+    }
 }
