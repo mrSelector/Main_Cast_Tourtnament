@@ -11,7 +11,15 @@ class Tournaments
     public function __construct($category)
     {
         $this->category = $category;
+
+        $this->cleanInputFromXSS();
     }
+
+    private function cleanInputFromXSS()
+    {
+        $this->category = htmlspecialchars(strip_tags($this->category));
+    }
+
 
     public function getCategory()
     {
