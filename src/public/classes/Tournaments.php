@@ -25,13 +25,14 @@ class Tournaments
     {
         return $this->category;
     }
-
+    // Метод який повертає турніри за категоріями
     public function getTournaments(){
         if ($this->category !== 'all'){
             return $this->fetchByCategory();
         }
         else {return $this->fetchAll();}
         }
+        // Метод що повертає усі турніри з БД
     private function fetchAll()
     {
         $dbConnection = DataBase::getInstance()->getConnection();
@@ -44,7 +45,7 @@ class Tournaments
 
         return $result;
     }
-
+    // Метод який повертає турніри за категорією з БД
     private function fetchByCategory()
     {
         $dbConnection = DataBase::getInstance()->getConnection();

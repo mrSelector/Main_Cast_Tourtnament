@@ -5,11 +5,14 @@ error_reporting(E_ALL);
 require __DIR__.'/../vendor/autoload.php';
 
 use MainCastTournament\App\classes\Tournaments;
-
+// Беремо категорію з суперглобального масиву GET
 $category = $_GET["category"] ?? 'all';
+
+// Створюємо екземпляр класу Tournaments та передаємо йому категорію
 $trn = new Tournaments($category);
+
+// Викликаємо метод який повертає турніри
 $res = $trn->getTournaments();
-print_r($trn->getCategory());
 
 
 ?>
